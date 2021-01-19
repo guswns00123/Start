@@ -1,0 +1,14 @@
+
+
+def hanoi(num,fir, sec, thr):
+    if num == 1:
+        print(fir,sec)
+        return 0
+    else:
+        hanoi(num-1,fir,thr,sec)
+        print(fir,sec)
+        hanoi(num-1,thr,sec,fir)
+            
+num = int(input())
+print(2**(num)-1) #총 이동 횟수
+hanoi(num,1,3,2)
