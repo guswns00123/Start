@@ -34,19 +34,17 @@ for n in range(1, 11):
 3. Dynamic Programming - Iterative
 # Time Complexity = O(n)
 # 앞에서부터 쌓아가는 느낌?
-# n을 100이라고 하자.
-def fibo(n):
-    if n < 2:
-        return n
-    cache = [0 for _ in range(n+1)]
-    cache[1] = 1
-    
-    for i in range(2, 100+1):
-        cache[i] = cache[i-1] + cache[i-2]
 
-    return cache[n]
+def fib(n):
+    f = [0] * (n+1)
+    f[0] = 1
+    f[1] = 1
+    for i in range(2,n+1):
+        f[i] = f[i-1] + f[i-2]
+    return f[n-1]
 
->>> print(fibo(100))
+
+print(fib(num))
 
 4. Dynamic Programming - Recursion
 # Time Complexity = O(n)
@@ -120,3 +118,21 @@ def fibo(n):
 
 
 fibo(100)
+
+
+7. 내가 생각한 알고리즘
+def fib(idx1, idx2, n, c):
+    if n == 0:
+        return idx1
+    if n == 1:
+        return idx2
+
+    if n == c:
+        return idx1
+
+    else:        
+        return fib(idx2, idx1+idx2, n, c+1)
+
+n = int(input())
+print(fib(0,1,n,0))
+
