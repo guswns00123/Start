@@ -1,0 +1,20 @@
+import sys
+from collections import deque
+
+n = int(sys.stdin.readline())
+
+arr = []
+res = deque([])
+
+for i in range(n):
+  res.append(i+1)
+  
+  
+while True:
+  if len(res) == 1:
+    print(res[0])
+    break
+    
+  res.popleft()
+  a = res.popleft()
+  res.append(a)
