@@ -1,0 +1,54 @@
+import sys
+from collections import deque
+import numpy as np
+
+
+
+n = int(sys.stdin.readline())
+arr = deque([])
+for i in range(n):
+    a = sys.stdin.readline().split()
+    
+    if 'push_front' in a :
+        arr.appendleft(a[1])
+        
+    elif 'push_back' in a:
+        arr.append(a[1])
+        
+        
+    elif 'pop_front' in a:
+        if arr:
+            b = arr.popleft()
+            print(b)
+        else:
+            print(-1)
+
+    elif 'pop_back' in a:
+        if arr:
+            b =arr.pop()
+            print(b)
+        else:
+            print(-1)
+
+    elif 'size'  in a:
+        print(len(arr))
+
+    elif 'empty' in a:
+        if arr:
+            print(0)
+        else:
+            print(1)
+
+    elif 'front' in a:
+        if arr:
+            print(arr[0])
+
+        else:
+            print(-1)
+    elif a[0] == 'back':
+        if arr:
+            print(arr[-1])
+
+        else:
+            print(-1)
+            
