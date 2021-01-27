@@ -1,0 +1,48 @@
+import sys
+from collections import deque
+import numpy as np
+
+def moveright(arr, k):
+
+
+    a = arr.popleft()
+    arr.append(a)
+    
+     
+    return arr
+
+def moveleft(arr,k):
+
+    a = arr.pop()
+    arr.appendleft(a)
+
+    return arr
+
+def remove(arr):
+    arr.popleft()
+
+    return arr
+
+m , n = map(int, sys.stdin.readline().split())
+
+arr = list(map(int, sys.stdin.readline().split()))
+fir = deque([i+1 for i in range(m)])
+
+cnt = 0
+while arr:
+    
+    if arr[0] == fir[0]:
+        
+        del arr[0]
+        remove(fir)
+        
+        
+    elif arr[0] != fir[0] and fir.index(arr[0]) > len(fir) // 2:
+        moveleft(fir, arr[0])
+        cnt += 1
+    elif arr[0] != fir[0] and fir.index(arr[0]) <= len(fir) // 2:
+        
+        moveright(fir, arr[0])
+        cnt += 1
+
+print(cnt)
